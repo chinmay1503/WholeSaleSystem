@@ -1,0 +1,76 @@
+<div ng-show="isAllowed()" class="list">
+        <h4>List Of Orders</h4>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th ng-click="orderByMe('salesord_id')">Sales Order Id</th>
+                <th ng-click="orderByMe('so_buyer_id')">Buyer Id</th>
+                <th ng-click="orderByMe('saleprice')">Sale Price</th>
+                <th ng-click="orderByMe('saledate')">Order Placed On</th>
+                <th ng-click="orderByMe('deliverydate')">Delivery Date</th>
+                <th>Payment Status</th>
+                <th>Order Status</th>
+            </tr>
+
+            <tr ng-repeat="placedOrder in orderDetails | orderBy: myOrderBy">
+                <td>{{placedOrder.salesord_id}}</td>
+                <td>{{placedOrder.so_buyer_id}}</td>
+                <td>{{placedOrder.saleprice | currency:"&#8377;" }}</td>
+                <td>{{placedOrder.saledate}}</td>
+                <td>{{placedOrder.deliverydate}}</td>
+                <td>{{placedOrder.payment_status}}</td>
+                <td>{{placedOrder.order_status}}</td>
+            </tr>
+        </table>
+    <button ng-click="refresh()" class="btn btn-primary"> Refresh </button>
+</div>
+
+<div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-8">
+            <div ng-show="isCreated" class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"> Calculate Profit </h4>
+                </div>
+
+                <div class="card-body">
+                    <form ng-submit="calculateProfit()">
+                        <div class="form-group row">
+                            <label for="startdate" class="col-lg-3 col-form-label form-control-label"> Start
+                                Date: </label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="date" ng-model="startDate" id="startdate">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="enddate" class="col-lg-3 col-form-label form-control-label"> End
+                                Date: </label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="date" ng-model="endDate" id="enddate">
+                            </div>
+                        </div>
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-9">
+                            <button class="btn btn-outline-info btn-rounded  hoverable addBtn"
+                                    ng-click="isCreated=false" type="submit">Submit
+                            </button>
+                            <span class="text-danger" style="color:red">{{ error }}</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-hide="isCreated" class="list">
+    <h4>Profit Earned :</h4>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Total Profit</th>
+        </tr>
+        <tr>
+            <td>{{profit.saleprice | currency:"&#8377;" }}</td>
+        </tr>
+    </table>
+</div>
+

@@ -1,0 +1,40 @@
+<div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"> Place an Order </h4>
+                </div>
+
+                <div class="card-body">
+                    <form ng-submit="submitPurchOrder()">
+                        <div class="form-group row">
+                            <label for="id" class="col-lg-3 col-form-label form-control-label"> Supplier : </label>
+                            <div class="col-lg-9">
+                                <select class="form-control" type="text" ng-model="supplierId" id="id" required>
+                                    <option value=21> Amazon</option>
+                                    <option value=22> Flipkart</option>
+                                    <option value=22> Snapdeal</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="date" class="col-lg-3 col-form-label form-control-label"> Delivery
+                                Date: </label>
+                            <div class="col-lg-9">
+                                <input class="form-control " type="date" ng-model="deliveryDate" id="date" required>
+                            </div>
+                        </div>
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-9">
+                            <button class="btn btn-outline-info btn-rounded  hoverable addBtn"
+                                    ng-click="isCreated=false" type="submit">Submit
+                            </button>
+                            <span class="text-danger" style="color:red">{{ error }}</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" ng-show="isAllowed()" ui-sref="home.purchaseorders.addpurchaseorder">Place Order</a></li>
+        <li class="nav-item">
+            <a class="nav-link" ui-sref="home.purchaseorders.listpurchaseorders">Display Orders</a></li>
+    </ul>
+</nav>
+
+<div>
+    <div ui-view=""></div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"> Add Supplier </h4>
+                </div>
+
+                <div class="card-body">
+                    <form ng-submit="submitSupplier()">
+                        <div class="form-group row">
+                            <label for="name" class="col-lg-3 col-form-label form-control-label"> Name : </label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" ng-model="supplierName" id="name" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="contact" class="col-lg-3 col-form-label form-control-label"> Contact No : </label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" required ng-model="supplierContact" id="contact">
+                            </div>
+                        </div>
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-9">
+                        <button class="btn btn-outline-info btn-rounded  hoverable addBtn" type="submit">Submit</button>
+                        </div>
+                        <div>
+                            {{success}}
+                        </div>
+                        <div>
+                            {{error}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

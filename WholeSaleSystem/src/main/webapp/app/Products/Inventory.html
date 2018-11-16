@@ -1,0 +1,23 @@
+<div ng-show="isAllowed()" class="list">
+    <h4>List Of Orders</h4>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th ng-click="orderByMe('product_id')">Product Id</th>
+            <th>Product Name</th>
+            <th>Product Quantity</th>
+            <th>Min Stock Required</th>
+            <th>Place Order</th>
+        </tr>
+
+        <tr ng-repeat="inv in displayInv | orderBy: myOrderBy">
+            <td>{{inv.product_id}}</td>
+            <td>{{inv.product_name}}</td>
+            <td>{{inv.product_quantity}}</td>
+            <td>{{inv.min_stock_level}}</td>
+            <td>
+                <button type="button" class="btn btn-primary" ng-click="placeOrder()"> Order</button>
+            </td>
+        </tr>
+    </table>
+    <button ng-click="refresh()" class="btn btn-primary"> Refresh </button>
+</div>

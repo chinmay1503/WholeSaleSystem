@@ -1,0 +1,42 @@
+<div class="list">
+    <table class="table table-bordered">
+        <tr>
+            <th>Order Id</th>
+            <th>Order Placed On</th>
+        </tr>
+        <tr>
+            <td>{{displaySalesOrder.salesord_id}}</td>
+            <td>{{displaySalesOrder.saledate}}</td>
+        </tr>
+    </table>
+    <span><button ng-click="confirmOrder()" class="btn btn-primary"> Order </button></span><span><button
+        ng-click="cancel(displaySalesOrder)" class="btn btn-primary"> Cancel </button></span>
+</div>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-4 portfolio-item custompadding" ng-repeat="products in displayProduct">
+            <div class="card h-100">
+                <img class="card-img-top" src="app/assets/img/{{products.product_img}}" alt="{{products.product_name}}">
+                <div class="card-body">
+                    <span class="card-title"><h2 class="white"> {{products.product_name}}</h2> </span>
+                    <div class="card-text">
+                        <p> Product Id :<span> {{products.product_id}} </span></p>
+                        <p> Price :<span> {{products.product_price}} </span></p>
+                        <p> Description :<span> {{products.product_desc}} </span></p>
+                        <p> Stock : <span> {{products.product_quantity}}</span></p>
+                        <label for="quantity"> Quantity : </label>
+                        <textarea id="quantity" rows="1" cols="5" ng-model="orders.ordquantity"></textarea>
+                        <p>
+                            <button type="button" class="btn btn-primary"
+                                    ng-click="add(displaySalesOrder , products , orders)">
+                                Add
+                            </button>
+                        </p>
+                        <p> {{ error }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

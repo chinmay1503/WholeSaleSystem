@@ -1,0 +1,46 @@
+<div class="list">
+    <table class="table table-bordered">
+        <tr>
+            <th>Purchase Order Id</th>
+            <th>Supplier Id</th>
+            <th>Purchase Price</th>
+            <th>Purchase Date</th>
+            <th>Expected Delivery Date</th>
+        </tr>
+        <tr>
+            <td>{{displayPurchOrder.purchaseord_id}}</td>
+            <td>{{displayPurchOrder.po_supplier_id}}</td>
+            <td>{{displayPurchOrder.purchprice}}</td>
+            <td>{{displayPurchOrder.purchdate}}</td>
+            <td>{{displayPurchOrder.exp_deliverydate}}</td>
+        </tr>
+    </table>
+    <span><button ng-click="confirmOrder()" class="btn btn-primary"> Order </button></span><span><button
+        ng-click="cancel(displayPurchOrder)" class="btn btn-primary"> Cancel </button></span>
+</div>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-4 portfolio-item custompadding" ng-repeat="products in displayProduct">
+            <div class="card h-100">
+                <img class="card-img-top" src="app/assets/img/{{products.product_img}}" alt="{{products.product_name}}">
+                <div class="card-body">
+                    <span class="card-title"><h2 class="white"> {{products.product_name}}</h2> </span>
+                    <div class="card-text">
+                        <p> Product Id :<span> {{products.product_id}} </span></p>
+                        <p> Price :<span> {{products.product_price}} </span></p>
+                        <p> Description :<span> {{products.product_desc}} </span></p>
+                        <label for="quantity"> Quantity : </label>
+                        <textarea id="quantity" rows="1" cols="5" ng-model="orders.ordquantity"></textarea>
+                        <p>
+                            <button type="button" class="btn btn-primary"
+                                    ng-click="add(displayPurchOrder , products , orders)">
+                                Add
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

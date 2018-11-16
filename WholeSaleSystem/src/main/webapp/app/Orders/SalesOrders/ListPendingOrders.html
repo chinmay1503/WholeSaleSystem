@@ -1,0 +1,39 @@
+<div ng-show="isAllowed()" class="list">
+    <h4>List Of Pending Orders</h4>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th ng-click="orderByMe('purchaseord_id')">Buyer Id</th>
+            <th>Buyer Name</th>
+            <th>Buyer Contact</th>
+            <th>Total Price</th>
+            <th>Order Status</th>
+            <th>Payment Status</th>
+            <th>Operations</th>
+        </tr>
+
+        <tr ng-repeat="orders in displayPending | orderBy: myOrderBy"  ng-include="getTemplate(orders)">
+            <script type="text/ng-template" id="display">
+            <td>{{orders.buyer_id}}</td>
+            <td>{{orders.buyer_name}}</td>
+            <td>{{orders.phone_no}}</td>
+            <td>{{orders.saleprice  | currency:"&#8377;"}}</td>
+            <td>{{orders.order_status}}</td>
+            <td>{{orders.payment_status}}</td>
+            <td> <button type="button" class="btn btn-primary" ng-click="edit(orders)"> Update</button></td>
+            </script>
+        </tr>
+        <script type="text/ng-template" id="edit">
+            <td><input type="text" ng-model=orders.buyer_id class="form-control input-sm"/></td>
+            <td><input type="text" ng-model=orders.buyer_name class="form-control input-sm"/></td>
+            <td><input type="text" ng-model=orders.phone_no class="form-control input-sm"/></td>
+            <td><input type="text" ng-model=orders.saleprice class="form-control input-sm"/></td>
+            <td><input type="text" ng-model=orders.order_status class="form-control input-sm"/></td>
+            <td><input type="text" ng-model=orders.payment_status class="form-control input-sm"/></td>
+            <td>
+                <button type="button" class="btn btn-primary" ng-click="updateOrders(orders)">Save</button>
+                <button type="button" class="btn btn-danger" ng-click="reset()">Cancel</button>
+            </td>
+        </script>
+    </table>
+    <button ng-click="refresh()" class="btn btn-primary"> Refresh</button>
+</div>

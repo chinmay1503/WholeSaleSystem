@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 portfolio-item" ng-repeat="products in displayProduct">
+            <div class="card h-100">
+                <img class="card-img-top" src="app/assets/img/{{products.product_img}}" alt="{{products.product_name}}">
+                <div class="card-body">
+                    <p><span class="card-title"><h2 class="white"> {{products.product_name}}</h2> </span></p>
+                    <div class="card-text">
+                        <p> Product Id :<span> {{products.product_id}} </span></p>
+                        <p> Price :<span> {{products.product_price | currency:"&#8377;"  }} </span></p>
+                        <p> Description :<span> {{products.product_desc}} </span></p>
+                        <p ng-show="isAllowed()">
+                            <button type="button" class="btn btn-primary" ng-click="edit(products)">
+                                Edit
+                            </button>
+                            <button type="button" class="btn btn-danger" ng-click="delete(products)">
+                                Delete
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ADD UPLOAD IMAGE (and point it to img folder) (TRIED BUT DIDNT SUCCEED) -->
+<!-- TRY TO IMPLEMENT INLINE EDITING (TRY xeditable)  -->
+<!-- IMPLEMENT UPDATE API -->

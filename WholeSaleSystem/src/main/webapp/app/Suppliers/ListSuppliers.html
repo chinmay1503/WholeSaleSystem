@@ -1,0 +1,34 @@
+<div class="list">
+        <h4>List Of Suppliers</h4>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th ng-click="orderByMe('supplierId')">Id</th>
+                <th ng-click="orderByMe('supplier_name')">Name</th>
+                <th>Phone No</th>
+                <th ng-show="isAllowed()">Operations</th>
+            </tr>
+
+            <tr ng-repeat="suppliers in displaySupplier | orderBy: myOrderBy" ng-include="getTemplate(suppliers)">
+                <script type="text/ng-template" id="display">
+                    <td>{{suppliers.supplier_id}}</td>
+                    <td>{{suppliers.supplier_name}}</td>
+                    <td>{{suppliers.supplier_phone_no}}</td>
+                    <td ng-show="isAllowed()">
+                        <button type="button" class="btn btn-primary" ng-click="edit(suppliers)"> Edit</button>
+                        <button type="button" class="btn btn-danger" ng-click="delete(suppliers);"> Delete</button>
+                    </td>
+                </script>
+                <script type="text/ng-template" id="edit">
+                    <td><input type="text" ng-model=suppliers.supplier_id class="form-control input-sm"/></td>
+                    <td><input type="text" ng-model=suppliers.supplier_name class="form-control input-sm"/></td>
+                    <td><input type="text" ng-model=suppliers.supplier_phone_no class="form-control input-sm"/></td>
+                    <td>
+                        <button type="button" class="btn btn-primary" ng-click="updateSupplier(suppliers)">Save</button>
+                        <button type="button" class="btn btn-danger" ng-click="reset()">Cancel</button>
+                    </td>
+                </script>
+            </tr>
+        </table>
+    <button ng-click="refresh()" class="btn btn-primary"> Refresh </button>
+</div>
+

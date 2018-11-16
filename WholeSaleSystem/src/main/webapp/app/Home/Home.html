@@ -1,0 +1,34 @@
+<div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" ng-show="isAllowed()" ui-sref=".buyers">Buyers</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" ui-sref=".suppliers">Suppliers</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" ui-sref=".products">Products</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                Orders
+            </a>
+            <div class="dropdown-menu" id="dropdown">
+                <a class="dropdown-item" ng-show="isSupplier()" ui-sref=".purchaseorders">PurchaseOrder</a>
+                <a class="dropdown-item" ng-show="isBuyer()" ui-sref=".salesorders">SalesOrder</a>
+            </div>
+        </li>
+    </ul>
+    <div class="topnav-right"><a ui-sref="login">Logout</a></div>
+</nav>
+<div class="container">
+    <div ui-view=""></div>
+</div>
+</div>
+

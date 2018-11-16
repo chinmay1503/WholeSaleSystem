@@ -1,0 +1,36 @@
+.addBtn{
+
+    display: block;
+    margin: 0 200px
+}
+
+.ProdBtn{
+
+    display: block;
+    margin: auto
+}
+
+body  {
+    background-color : #343a40;
+}
+
+.list {
+    color : white;
+}
+
+img {
+    height : 400px;
+    width :  200px;
+}
+
+.custompadding {
+    padding-top:50px;
+}
+
+h2 {
+    color : white;
+}
+
+.white {
+    color : black;
+}
